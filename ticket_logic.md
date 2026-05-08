@@ -31,8 +31,8 @@ which epic parent, and which field values to assign when input is ambiguous.
 - Onboard tablet (loader/dozer) → **AVP-43609**
 
 **Ground Truth Network / Rajant:**
-- On-prem network, mesh install, vehicle connectivity, network drop testing → **EC-15497** (epic)
-- FMS-side network visualization → use closest AVP epic based on context; no dedicated AVP epic confirmed
+- On-prem network, mesh install, vehicle connectivity, network drop testing → **EC-15497**
+- FMS-side network visualization → use closest AVP epic based on context
 
 ---
 
@@ -40,22 +40,44 @@ which epic parent, and which field values to assign when input is ambiguous.
 
 Parent of all FMS/Obsidian V4 AVP work: **AVP-34993** (C^3: C-Cube: Fleet Management)
 
-| Epic Key | Jira Summary | Doc Deliverable Name | Keywords |
+| Epic Key | Jira Summary | GDoc Deliverable Name | Notes |
 |---|---|---|---|
-| AVP-57421 | [Obsidian V4] Dump script page | Dump script creation page/modal | dump script, authoring scripts, create script, configure dump steps, raise/wait/forward |
-| AVP-57537 | [Obsidian V4] Dump zone configuration | Dump zone configuration | dump zone, zone configuration, LHD assignment, hopper zone, paddock zone, map panel zone |
-| AVP-57539 | [Obsidian V4] Mission Page | Mission page | mission, create mission, load zone, dump zone, assign haul truck, haul route |
-| AVP-57541 | [Obsidian V4] Fuel Bay / Staging Points | Fuel Bay / Staging Points | fuel bay, staging point, send to fuel, fuel level, cycle state display, FMS fuel alert |
-| AVP-57543 | [Obsidian V4] Loader V2 | Loader V2 | loader V2, wheel loader UI, bench loader UI, load path UI |
-| AVP-57546 | [Obsidian V4] Update FMS UI map dynamically | Updating FMS UI map dynamically | dynamic map, FMS map update, bench shape update, stack map sync, Three.js, drone imagery |
-| AVP-58171 | Heidelberg Cluster - Prod | Heidelberg customer cluster | Heidelberg, AU cluster, Australian region, production cluster |
-| AVP-58172 | [Obsidian V4] Manual truck HMI | Manual haul trucks | manual truck, manual haul, manual HMI, manual vehicle fleet |
-| AVP-43609 | SDS - Mining Product HMI UI/UX | Tablet experience / Maps & HMI | tablet, HMI tablet, onboard HMI, tablet productionization, maps tablet |
-| AVP-49321 | Report & Analytics for Mining | Reporting page | reporting, analytics, shift report, exception report, variance report, performance report |
-| AVP-51568 | Site Configuration | Site configuration | site config, timezone, shift days, speed limit, units, metrics units |
-| AVP-55510 | [C^3][FMS]: Shift Management | Shift management | shift management, shift scheduling, shift handover |
-| AVP-55524 | Time Governance | Time governance | time governance, equipment time, time classification, time allocation |
-| AVP-53044 | Fleet Management Productionization | Fleet Management Productionization | fleet productionization, FMS stability, FMS tech debt |
+| AVP-57421 | [Obsidian V4] Dump script page | Dump script creation page/modal | |
+| AVP-57537 | [Obsidian V4] Dump zone configuration | Dump zone configuration | |
+| AVP-57539 | [Obsidian V4] Mission Page | Mission page | |
+| AVP-57541 | [Obsidian V4] Fuel Bay / Staging Points | Fuel Bay / Staging Points | |
+| AVP-57543 | [Obsidian V4] Loader V2 | Loader V2 | |
+| AVP-57546 | [Obsidian V4] Update FMS UI map dynamically | Updating FMS UI map dynamically | Dynamic map visualization (Three.js, drone imagery) is scope under this epic |
+| AVP-58171 | Heidelberg Cluster - Prod | Heidelberg customer cluster | Production environment — see routing logic below |
+| AVP-58173 | Heidelberg Cluster - Non-Prod | Heidelberg customer cluster | Non-production environment — see routing logic below |
+| AVP-58172 | [Obsidian V4] Manual truck HMI | Manual haul trucks | |
+| AVP-43609 | SDS - Mining Product HMI UI/UX | Tablet experience / Maps & HMI | |
+| AVP-49321 | Report & Analytics for Mining | Non-Autonomy Deliverables | Reporting, analytics, shift/exception/variance reports |
+| AVP-51568 | Site Configuration | Non-Autonomy Deliverables | Timezone, shift days, speed limits, unit settings |
+| AVP-55510 | [C^3][FMS]: Shift Management | Non-Autonomy Deliverables | Shift scheduling, handover, shift definition |
+| AVP-55524 | Time Governance | Non-Autonomy Deliverables | Equipment time classification and allocation |
+| AVP-53044 | Fleet Management Productionization | Non-Autonomy Deliverables | FMS reliability, stability, tech debt |
+
+### Heidelberg Cluster Routing (AVP-58171 vs AVP-58173)
+
+Both epics map to the same "Heidelberg customer cluster" deliverable. Route based on the nature of the work:
+
+- **AVP-58171 (Prod)**: Work that affects what customers and operators see and use in the live environment. Infrastructure that serves real operations. Anything that needs to be stable, release-gated, or approved before going live.
+- **AVP-58173 (Non-Prod)**: Setup, validation, testing, and configuration work done before or in parallel with prod. Work that is iterative, experimental, or serves internal verification purposes.
+
+Reason from the action item's intent — is this making something available to real users, or is it preparing/testing/verifying before that happens?
+
+### Non-Autonomy Deliverables Routing
+
+Action items may appear under a "Non-Autonomy Deliverables" section heading in the doc without naming the specific deliverable. In that case, match the action item to one of the five epics above based on what it's about:
+
+- Analytics, reports, data exports, dashboards → **AVP-49321**
+- Site-level settings, configuration pages, admin preferences → **AVP-51568**
+- Shift definition, scheduling, handover → **AVP-55510**
+- Time tracking, time categories, equipment time allocation → **AVP-55524**
+- Anything about FMS reliability, uptime, tech debt, or productionization → **AVP-53044**
+
+Do not prompt the reporter for clarification on these — reason from the action item text and pick the closest match.
 
 ---
 
@@ -63,40 +85,38 @@ Parent of all FMS/Obsidian V4 AVP work: **AVP-34993** (C^3: C-Cube: Fleet Manage
 
 Parent of all Obsidian V4 EC/stack work: **EC-11955**
 
-| Epic Key | Jira Summary | Doc Deliverable Name | Keywords |
+| Epic Key | Jira Summary | GDoc Name | Notes |
 |---|---|---|---|
-| EC-12454 | Obsidian V4 Capability: Managed and Unmanaged Dumping Operations | Dumping | dump behavior, hopper dump, paddock dump, managed dump, unmanaged dump, dump mission planner |
-| EC-16103 | Obsidian V4 Capability: Wheel Loader Loading | Wheel Loader | wheel loader, WL autonomy, wheel loader stack, WL loading |
-| EC-16104 | Obsidian V4 Capability: Bench Loading | Bench Loading | bench loading, bench loader, load path, occupancy-based stopping, VARIABLE path, bench occupancy |
-| EC-16105 | Obsidian V4 Capability: Fuel Bay | Fuel Bay (stack/mission planner) | fuel bay stack, mission planner fuel, QueuedForFuel, Fueling state, fuel behavior tree, fuel MQTT |
-| EC-16107 | Obsidian V4 Capability: Mixed Operation | Mixed Operation | mixed operation, V2V, X2V, multi-vehicle, distributed mapping, VehicleMetadata, BedrockVehicleManager, x2v detections |
-| EC-16122 | Obsidian V4 Capability: Triple Leader Follower | Triple Leader Follower | triple LF, triple leader follower, 3-vehicle LHD, ADT-201, RAP-107, KOM-101 multi |
-| EC-16134 | Obsidian V4 Subsystem: Map Workflow | Map Improvements | map improvement, map toolset, SLAM data, drone imagery, map workflow, map validation, on-site cluster map |
-| EC-16174 | Obsidian V4 Operations: Rockwell Buildout | Rockwell Buildout | Rockwell, site bringup, hopper construction, slope bringup, wheel loader sourcing, HIL bench |
-| EC-16183 | Obsidian V4 Development: Multi-Ego Simulation | Simulation | multi-ego sim, AxionSim, Isaac-Sim, multi-vehicle sim, bedrock multi-ego |
-| EC-16190 | Obsidian V4 Development: Stability, Robustness, Performance Metrics | Stability, Robustness, Performance Metrics | metrics, stability, robustness, pass/fail criteria, regression metrics, performance metrics |
-| EC-16410 | Obsidian V4 Development: Uncertainty Framework | Uncertainty Framework | uncertainty, BedrockStreaming uncertainty, uncertainty ellipse, Hive viz uncertainty |
-| EC-15497 | Obsidian V4 Development: On-prem network ground truth | On-prem network ground truth integration | on-prem network, Rajant, mesh network, ground truth, network integration |
+| EC-12454 | Obsidian V4 Capability: Managed and Unmanaged Dumping Operations | Hopper Dumping | GDoc uses "Hopper Dumping"; also covers Paddock Dumping action items (feature mostly complete) |
+| EC-16103 | Obsidian V4 Capability: Wheel Loader Loading | Wheel Loader | |
+| EC-16104 | Obsidian V4 Capability: Bench Loading | Bench Loading | |
+| EC-16105 | Obsidian V4 Capability: Fuel Bay | Fuel Bay (stack/mission planner) | |
+| EC-16107 | Obsidian V4 Capability: Mixed Operation | Mixed Operation | |
+| EC-16122 | Obsidian V4 Capability: Triple Leader Follower | Triple Leader Follower | |
+| EC-16134 | Obsidian V4 Subsystem: Map Workflow | Map Improvements | |
+| EC-16183 | Obsidian V4 Development: Multi-Ego Simulation | Multi-Ego Simulation | Full name in GDoc; do not match to generic "simulation" references |
+| EC-16190 | Obsidian V4 Development: Stability, Robustness, Performance Metrics | Stability, Robustness, Performance Metrics | |
+| EC-16410 | Obsidian V4 Development: Uncertainty Framework | Uncertainty Framework | |
+| EC-15497 | Obsidian V4 Development: On-prem network ground truth | On-prem network ground truth integration | |
+| EC-16174 | Obsidian V4 Operations: Rockwell Buildout | Rockwell Buildout | Jira category is "Operations" but appears under "Development" section in meeting notes |
 
 ---
 
 ## 4. Epic Selection Logic
 
-When matching an action item to an epic:
-
 1. **Explicit Jira key in the doc line** (e.g., "[EC-16104]") → use that directly.
-2. **Section context** — the meeting heading or parent requirement doc heading is strong signal. Action item under a "Bench Loading" section → EC-16104.
-3. **Keyword match** — match action item text against the Keywords column above.
+2. **Section context** — the meeting heading or parent requirement doc heading is strong signal. Action item under a "Bench Loading" section → EC-16104. Action item under "Non-Autonomy Deliverables" → apply routing rules in Section 2.
+3. **Keyword and semantic match** — match action item text against GDoc Name, Jira Summary, and Notes columns above.
 4. **Assignee** — cross-reference team_context.md for who is currently working on what area.
-5. **If still ambiguous** — show uncertainty in the preview and prompt the reporter to confirm the parent before creating. Do not silently guess and do not fall back to the program-level parent (EC-11955 / AVP-34993).
+5. **If still ambiguous** — pick the closest match, show uncertainty in the preview, and prompt the reporter to confirm. Bias toward action: a ticket in the slightly wrong epic is better than no ticket.
 
 ---
 
 ## 5. Team Context
 
-See `team_context.md` for the current person → feature area mapping. That file is updated after each approved ticket batch and is the primary source for assignee inference.
+See `team_context.md` for the current person → feature area mapping. That file is updated after each approved ticket batch and is the primary source for assignee inference when no assignee is specified in the doc.
 
-Use this static table only as a fallback when team_context.md has no signal:
+Static fallback table (use only when team_context.md has no signal):
 
 | Person | Primary Area | Default Epic(s) |
 |---|---|---|
@@ -108,7 +128,7 @@ Use this static table only as a fallback when team_context.md has no signal:
 | Zeyuan Jin | Wheel Loader | EC-16103 |
 | Peter Redman | Mixed Operation | EC-16107 |
 | Abhijit Chilukuri | Triple LF | EC-16122 |
-| Jensen Solar | Metrics, Uptime | EC-16190 |
+| Jensen Solar | Metrics | EC-16190 |
 | Tom Jennings | Rockwell, Network | EC-16174, EC-15497 |
 | Camille Lin | Network, Connectivity | EC-15497 |
 | Pankaj Saini | Reporting, Cluster | AVP-49321, AVP-58171 |
@@ -133,13 +153,13 @@ The doc is the primary source — no revision history API needed.
 
 ### Priority
 - Default: **P1**
-- P0: "blocking", "blocked", "safety", "demo", "customer milestone", "production down" — should also be stated inline in the doc
-- P2: "nice to have", "post-V4", "stretch goal" — should also be stated inline in the doc
+- P0: blocking, safety, demo-critical, customer milestone, production down — should also be stated inline in the doc
+- P2: nice to have, post-V4, stretch goal — should also be stated inline in the doc
 - If the doc doesn't signal P0 or P2, use P1
 
 ### Sprint
 - Sprint name should appear in the meeting section title (e.g., "Sprint 2026.17")
-- If not present, defer sprint assignment and leave a TODO — reference the sprint automation bot for fallback logic
+- If not present, defer sprint assignment — reference the sprint automation bot for fallback logic
 
 ### Due Date (EC only)
 - Set only if explicitly mentioned in the action item or section context
@@ -147,7 +167,7 @@ The doc is the primary source — no revision history API needed.
 
 ### Parent
 - Always set to a specific epic from Sections 2 or 3 above
-- If no match found → show in preview as unresolved and prompt reporter to confirm before creating
+- If no match found → show as unresolved in preview and prompt reporter to confirm before creating
 
 ### Acceptance Criteria (AVP only)
 - Required before backlog → To Do transition
