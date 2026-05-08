@@ -239,11 +239,10 @@ def parse_section(section_text: str, section_start_line: int = 1) -> ParseResult
 
     current_subsection = ""
     current_feature = ""
-    feature_assignees: list[str] = []   # assignees declared at feature level
-
-    # Track indentation stack: list of (indent_level, assignees) for
-    # standalone-name lines so sub-items inherit the assignee
+    feature_assignees: list[str] = []
     assignee_stack: list[tuple[int, list[str]]] = []
+    # track raw task texts per feature so we can backfill sibling_context after parsing
+    feature_item_indices: dict[str, list[int]] = {}   # feature → indices into result.items
 
     for rel_idx, raw_line in enumerate(lines[1:], start=2):   # skip heading
         line_no = section_start_line + rel_idx - 1
@@ -290,15 +289,13 @@ def parse_section(section_text: str, section_start_line: int = 1) -> ParseResult
             assignees, task = _parse_assignees_and_task(clean)
 
             if not task and not ticket:
-                # Pure feature label (no task, no ticket) — set as current feature
                 current_feature = clean
                 feature_assignees = assignees
                 continue
             else:
-                # Feature label with an inline task or ticket
                 if not current_feature:
                     current_feature = clean if not task else ""
-                result.items.append(ActionItem(
+                item = ActionItem(
                     task=task or clean,
                     raw_line=raw_line,
                     subsection=current_subsection,
@@ -309,7 +306,9 @@ def parse_section(section_text: str, section_start_line: int = 1) -> ParseResult
                     is_new=is_new,
                     indent_level=indent,
                     line_number=line_no,
-                ))
+                )
+                feature_item_indices.setdefault(current_feature, []).append(len(result.items))
+                result.items.append(item)
             continue
 
         # Sub-item line
@@ -328,13 +327,12 @@ def parse_section(section_text: str, section_start_line: int = 1) -> ParseResult
         effective_assignees = assignees or inherited or feature_assignees
 
         if not task and ticket:
-            # Ticket-only line — use ticket as task label
             task = clean or ticket
 
         if not task:
             continue
 
-        result.items.append(ActionItem(
+        item = ActionItem(
             task=task,
             raw_line=raw_line,
             subsection=current_subsection,
@@ -345,7 +343,15 @@ def parse_section(section_text: str, section_start_line: int = 1) -> ParseResult
             is_new=is_new,
             indent_level=indent,
             line_number=line_no,
-        ))
+        )
+        feature_item_indices.setdefault(current_feature, []).append(len(result.items))
+        result.items.append(item)
+
+    # Backfill sibling_context: each item gets the task texts of its feature-siblings
+    for feature, indices in feature_item_indices.items():
+        all_tasks = [result.items[i].task for i in indices]
+        for i in indices:
+            result.items[i].sibling_context = [t for t in all_tasks if t != result.items[i].task]
 
     return result
 
