@@ -13,9 +13,9 @@
     "parent":                "parent",
     "components":            "components",
     "due_date":              "duedate",
-    "sprint":                "FETCH_FIELD_ID",
-    "acceptance_criteria":   "FETCH_FIELD_ID"
+    "sprint":                "customfield_11047",
+    "acceptance_criteria":   "customfield_10568"
   },
   "parent_optional_for_types": ["Initiative", "Field Test"],
-  "TODO": "Replace FETCH_FIELD_ID values by running: python scripts/fetch_field_ids.py"
+  "_field_ids_resolved": true
 }

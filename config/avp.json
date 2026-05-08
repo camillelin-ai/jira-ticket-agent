@@ -12,8 +12,8 @@
     "assignee":    "assignee",
     "parent":      "parent",
     "components":  "components",
-    "sprint":      "FETCH_FIELD_ID",
-    "engagement":  "FETCH_FIELD_ID"
+    "sprint":      "customfield_11047",
+    "engagement":  "customfield_11608"
   },
-  "TODO": "Replace FETCH_FIELD_ID values by running: python scripts/fetch_field_ids.py"
+  "_field_ids_resolved": true
 }
