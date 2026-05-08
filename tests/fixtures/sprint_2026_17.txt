@@ -1,0 +1,16 @@
+## 2026.17 – Apr 20, 2026 – May 1, 2026
+
+  - Obsidian Product
+  - Finalize design docs and timelines for each CONOPs item → formal sprint kickoff with the broader team (not recurring) to clarify scope (either 2026.17 or 2026.19)
+
+**FMS**
+
+  - Avi Agarwal, Pankaj Saini: populate FMS epics in AVP-34993
+  - Avi Agarwal: clarify FMS Deliverables requirements – concrete success criteria across FE, BE, design
+  - Dump script management/creation
+
+      - Backend design: Avi Agarwal
+      - UI scoping: Anisha Jain
+  - Fuel Bay/Staging Points
+
+      - Kamil Nocon: scoping

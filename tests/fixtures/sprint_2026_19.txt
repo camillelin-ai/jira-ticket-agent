@@ -1,0 +1,127 @@
+## 2026.19 – May 4, 2026 – May 15, 2026
+
+#### FMS
+
+  - https://vos-release-dashboard.experimental.apps.applied.dev/execution/capability/fleet-management
+  - Dump script management/creation
+
+      - Complete backend design and development: Avi Agarwal
+
+          - [P2] integrates with stack completely
+      - Plan for UI design: Gyuri Han
+      - Plan for UI dev: Anisha Jain
+  - Dump zone configuration
+
+      - Backend design and development: Avi Agarwal
+      - Plan for UI design: Gyuri Han
+      - Plan for UI dev: Anisha Jain
+  - Mission page
+
+      - Eng: Shreya Vemuri
+
+          - Done with scoping and designing
+          - Implement BE
+          - Question for design on basic page layout
+          - Will start with db and rpc calls next week
+      - Plan out UI design: Gyuri Han
+  - Fuel Bay/Staging Points
+
+      - Kamil Nocon
+
+          - [EC-16512] Display fuel percentage in hive - match figma designs
+          - [EC-16513] Fuel level extractor for Raptor
+  - Loader V2
+
+      - Eng plan: Avi Agarwal
+      - Load pose page: Avi Agarwal
+  - Heidelberg customer cluster
+
+      - Pankaj Saini – need plan doc
+  - Dynamic Map updates: Kamil Nocon
+
+      - [AVP-57547] Review proposed solutions and create eng design doc
+  - Manual haul trucks
+
+      - Not scheduled for this sprint
+
+          - after-May^
+      - Avi Agarwal: plan doc
+      - Kamil Nocon: verify tablet supply for Rockwell vehicles
+
+#### Stack
+
+  - Bench Loading: Wenkai Ren
+
+      - Add KPIs to design doc
+      - [EC-16482: distance from loading pose to bench through occupancy part 1]
+  - Driverless Operation: Jonathan Jiang
+
+      - Amber Chau, Jensen Solar: implement mvp of autonomy accumulated metrics dashboard for historical data
+      - [EC-16454] Fault List Audits by subsystem @SDS-mining-team
+  - Dumping: Walter Wang
+
+      - [EC-16498] Authority gated dump spot selection
+      - Scoping out Hopper. Finalizing with Avi on monday
+  - Fuel Bay – Mission Planner: Walter Wang
+
+      - Scoping. Finalizing soon.
+  - Mixed Operation: Peter Redman
+
+      - [EC-16311]: Deprecate ego_vehicle_metadata (ObjectMetadata) in favor of VehicleMetadata
+      - [EC-16434]: Deprecate BedrockObjectManager in favor of BedrockVehicleManager
+      - [EC-16666]: Remove dual publish of vehicle metadata
+      - [EC-16667]: Tag x2v detections with correct semantic labels
+      - [EC-16314]: Motion-compensate X2V detections
+      - [EC-16316]: Uncertainty growth for X2V detections
+      - [EC-16310]: Wire new vehicle metadata from bedrock to object tracker
+      - [EC-16339]: Extract BedrockStreamingRequest building logic into bedrock_request_builder library
+  - Slope Handling: Huaiqian Shou
+
+      - [EC-16503] Understand the current ADT slope handling capability in Autonomy
+      - [EC-16500] Fix reverse direction sign bug
+      - [EC-16668]: Revive hill start assist — Peter Redman
+  - Triple Leader Follower: Abhijit Chilukuri
+
+      - Scoping
+  - Wheel Loader: Zeyuan Jin
+
+      - [EC-16253: [P&C] Occupancy interface adjustment]
+
+#### Development
+
+  - Ground-Truth Network: Camille Lin
+
+      - Ernest Gustave, Kamil Nocon, Elliot Chen: [EC-16003] Verify vehicle connectivity to the on-prem Bedrock server
+      - [EC-16560] Identify plan for demo-ing network drops per vehicle
+      - Tom Jennings: [AVP-52398] mitigate dead spots
+      - [New – 26.19-21] [EC-16600] Integrate all loader, dozer, and excavators onto on-prem network
+      - [P2] [EC-15997] Autonomous vehicle smoke tests on the mesh network
+  - HIL Bench with Open Loop Replay: Ikshwak Jinesh
+
+      - Scope Q2 goals
+      - [New] Anderson Vankayala, Ernest Gustave: Document Obsidian Bench requirements in HIL Bench Requirements Doc
+      - [P2] Q2 roadmap
+  - Map Improvements: Li Jin
+
+      - Create the mining map validator profile
+      - Test map workstation
+  - Multi-Ego Simulation: Kamil Nocon
+
+      - [EC-16514] Start initial AxionSim integration to determine if it fits mining needs
+  - Rockwell Bringup: Tom Jennings
+
+      - WA500 Front End Loader Roll Out and Training
+      - EC350EL Volvo Roll Out and Training
+      - FEL and EC Destructible Load Zone Construction
+      - Hopper Construction
+      - 10 degree slope construction
+  - Stability, Robustness, Performance Metrics: Jensen Solar
+
+      - Design doc: plan out high-level roadmap
+      - [EC-16365] Work with subsystem owners to audit metrics list and measurement method
+      - Abhijit Chilukuri: [EC-16366] Redefine and Document feature result/Stack Stability pass/fail criteria
+      - [EC-16407] Abhijit Chilukuri: MPK Deployment for Rockwell Vehicles and subtasks
+  - Uncertainty Framework: Naveen Kumar Aproop
+
+      - Finalize the design doc
+      - Scope out the work for Bedrock Fleet Tracker module
