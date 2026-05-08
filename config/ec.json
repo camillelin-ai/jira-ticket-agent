@@ -1,0 +1,21 @@
+{
+  "project_key": "EC",
+  "jira_base_url": "https://appliedintuition.atlassian.net",
+  "default_status": "Backlog",
+  "todo_transition_name": "To Do",
+  "requires_acceptance_criteria_for_todo": true,
+  "notes": "Camille has admin access. Parent is optional for top-level initiatives and field test tickets.",
+  "fields": {
+    "summary":               "summary",
+    "description":           "description",
+    "priority":              "priority",
+    "assignee":              "assignee",
+    "parent":                "parent",
+    "components":            "components",
+    "due_date":              "duedate",
+    "sprint":                "FETCH_FIELD_ID",
+    "acceptance_criteria":   "FETCH_FIELD_ID"
+  },
+  "parent_optional_for_types": ["Initiative", "Field Test"],
+  "TODO": "Replace FETCH_FIELD_ID values by running: python scripts/fetch_field_ids.py"
+}

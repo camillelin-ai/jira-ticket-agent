@@ -1,0 +1,19 @@
+{
+  "project_key": "AVP",
+  "jira_base_url": "https://appliedintuition.atlassian.net",
+  "default_status": "Backlog",
+  "todo_transition_name": "To Do",
+  "requires_acceptance_criteria_for_todo": false,
+  "notes": "No admin access. AVP-specific field: Engagement.",
+  "fields": {
+    "summary":     "summary",
+    "description": "description",
+    "priority":    "priority",
+    "assignee":    "assignee",
+    "parent":      "parent",
+    "components":  "components",
+    "sprint":      "FETCH_FIELD_ID",
+    "engagement":  "FETCH_FIELD_ID"
+  },
+  "TODO": "Replace FETCH_FIELD_ID values by running: python scripts/fetch_field_ids.py"
+}
