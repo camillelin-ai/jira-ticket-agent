@@ -3,7 +3,7 @@
   "jira_base_url": "https://appliedintuition.atlassian.net",
   "default_status": "Backlog",
   "todo_transition_name": "To Do",
-  "requires_acceptance_criteria_for_todo": true,
+  "requires_acceptance_criteria_for_todo": false,
   "notes": "Camille has admin access. Parent is optional for top-level initiatives and field test tickets.",
   "fields": {
     "summary":               "summary",

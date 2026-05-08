@@ -3,7 +3,7 @@
   "jira_base_url": "https://appliedintuition.atlassian.net",
   "default_status": "Backlog",
   "todo_transition_name": "To Do",
-  "requires_acceptance_criteria_for_todo": false,
+  "requires_acceptance_criteria_for_todo": true,
   "notes": "No admin access. AVP-specific field: Engagement.",
   "fields": {
     "summary":     "summary",

@@ -16,9 +16,9 @@ Every ticket you create must have:
 - A description that gives enough context for an engineer to start work without follow-up questions
 - Correct field values for the project (see config files for required fields per project)
 
-# Acceptance Criteria (EC only)
+# Acceptance Criteria (AVP only)
 
-EC tickets require acceptance criteria before they can move from Backlog to To Do. When generating AC:
+AVP tickets require acceptance criteria before they can move from Backlog to To Do. When generating AC:
 - Write 2-5 bullet points in "Given / When / Then" or plain "Done when..." format
 - Be specific enough that a reviewer can objectively confirm the ticket is complete
 - Generate reasonable AC based on the ticket's description — do not leave it blank or generic
